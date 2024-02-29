@@ -99,7 +99,7 @@ async getPhotoList(albumId) {
       // Сохраняем фотографию в базе данных
       const photo = await Photo.create({
         title: title, // Замените на реальный заголовок
-        url: '/path/to/uploads/' + photoFilename, // Путь к файлу
+        url: '../../../albums/' + photoFilename, // Путь к файлу
       });
   
       // Получаем объекты альбомов по их идентификаторам

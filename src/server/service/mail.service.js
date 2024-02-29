@@ -1,22 +1,21 @@
-import nodemailer from "nodemailer";
+/* eslint-env node */
 
-// Порт, который взят с gmail
-const SMTP_PORT = 587;
-// Имя хоста взято с gmail
-const SMTP_HOST = "smtp.gmail.com";  // Замените на фактический хост
-// Имя пользователя для рассылки
-const SMTP_USER = "eshopify532@gmail.com";
-const SMTP_PASSWORD = "rqbr owcy janf ryhf"; // Обернул пароль в кавычки
-// ССЫЛКА на клиент сайта 
-const API_URL = "http://localhost:5000"; // Добавил кавычки вокруг URL
+import nodemailer from "nodemailer";
+import { config } from 'dotenv';
+config();
+
+const SMTP_PORT = process.env.SMTP_PORT ;
+const SMTP_HOST = process.env.SMTP_HOST ;
+const SMTP_USER = process.env.SMTP_USER ;
+const SMTP_PASSWORD = process.env.SMTP_PASSWORD ;
+const API_URL = process.env.API_URL ;
 
 class MailService {
-  // Создаем конструктор
   constructor() {
     this.transporter = nodemailer.createTransport({
       host: SMTP_HOST,
       port: SMTP_PORT,
-      secure:false,
+      secure: false,
       auth: {
         user: SMTP_USER,
         pass: SMTP_PASSWORD,
@@ -40,4 +39,4 @@ class MailService {
   }
 }
 
-export default new MailService(); // Экспортируем экземпляр класса
+export default new MailService();

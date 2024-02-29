@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 import { User } from "../models/user-model.js";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
@@ -5,8 +7,11 @@ import tokenService from "./token-service.js";
 import UserDto from "../dtos/user-dto.js";
 import MailService from "../service/mail.service.js";
 import ApiError from "../exceptions/api-error.js";
+//импортируем переменную окружения 
+import { config } from 'dotenv';
+config();
 // ССЫЛКА на  cервер сайта
-const API_URL = "http://localhost:5000"; // Добавил кавычки вокруг URL
+const API_URL = process.env.API_URL; // Добавил кавычки вокруг URL
 class UserService {
   // Создание пользователя
   async registration(email, password) {

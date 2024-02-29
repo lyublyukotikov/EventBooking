@@ -4,6 +4,8 @@ import UserService from "../service/user-service.js";
 import { validationResult } from "express-validator";
 // импортируем наш класс чтобы ловить ошибки
 import ApiError from "../exceptions/api-error.js";
+//импортируем переменную окружения 
+
 // ссылка на клиент
 const CLIENT_URL = "http://localhost:5173/";
 class UserController {

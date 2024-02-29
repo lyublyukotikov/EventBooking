@@ -1,10 +1,12 @@
+/* eslint-env node */
+
 import jwt from "jsonwebtoken";
 import { Token } from "../models/token-model.js";
-// ACCESS TOKEN
-const JWT_ACCESS_SECRET = "jwt-secret-key";
-
-// REFRESH TOKEN
-const JWT_REFRESH_SECRET = "jwt-refresh-key";
+//импортируем переменную окружения 
+import { config } from 'dotenv';
+config();
+const JWT_ACCESS_SECRET = process.env.JWT_ACCESS_SECRET;
+const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET;
 
 class TokenService {
   // Генерация токена

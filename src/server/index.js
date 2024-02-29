@@ -1,20 +1,23 @@
+/* eslint-env node */
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import sequelize from "../server/connect_db/db.connect.js"; // Импортируем экземпляр sequelize
 
 import router from "../../src/server/router/index.js";
-
+//импортируем переменную окружения 
+import { config } from 'dotenv';
+config();
 //импортируем middleware для обработки ошибок 
 import errorMiddleware from "./middlewares/error-middleware.js";
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:5173'
+  origin: process.env.CORS_ORIGIN
 }));
 app.use("/api", router);
 app.use(errorMiddleware);
