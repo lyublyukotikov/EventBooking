@@ -1,0 +1,19 @@
+
+{
+  "cards": [
+    { "id": 1, "heading": "Карточка 1", "imageUrl": "https://example.com/image1.jpg" },
+    { "id": 2, "heading": "Карточка 2", "imageUrl": "https://example.com/image2.jpg" },
+    { "id": 3, "heading": "Карточка 3", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 4, "heading": "Карточка 4", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 5, "heading": "Карточка 5", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 6, "heading": "Карточка 6", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 7, "heading": "Карточка 7", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 8, "heading": "Карточка 8", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 9, "heading": "Карточка 9", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 10, "heading": "Карточка 10", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 11, "heading": "Карточка 11", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 12, "heading": "Карточка 12", "imageUrl": "https://example.com/image3.jpg" },
+    { "id": 13, "heading": "Карточка 13", "imageUrl": "https://example.com/image3.jpg" }
+    
+  ]
+}
