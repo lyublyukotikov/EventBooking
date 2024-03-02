@@ -1,7 +1,5 @@
 // тут настраиваем axios
-
 import axios from "axios";
-import { config } from "dotenv";
 import { AuthResponse } from "../models/response/AuthResponse";
 
 // ccылка на сервер

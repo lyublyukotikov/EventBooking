@@ -6,8 +6,11 @@ import { validationResult } from "express-validator";
 import ApiError from "../exceptions/api-error.js";
 //импортируем переменную окружения 
 
+import { config } from 'dotenv';
+config();
 // ссылка на клиент
-const CLIENT_URL = "http://localhost:5173/";
+// eslint-disable-next-line no-undef
+const CLIENT_URL = process.env.CLIENT_URL 
 class UserController {
   // регистрация
   async registration(req, res, next) {
