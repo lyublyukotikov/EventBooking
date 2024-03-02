@@ -380,7 +380,10 @@ const daysInMonth = (date: Date): number => {
   const styles: Record<string, React.CSSProperties> = {
     
     calendarContainer: {
-      paddingTop:"30px",paddingBottom:"60px",paddingLeft:"30px",paddingRight:"30px",
+      paddingTop:"30px",
+      paddingBottom:"100px",
+      paddingLeft:"30px",
+      paddingRight:"30px",
     
       
       
@@ -401,7 +404,7 @@ const daysInMonth = (date: Date): number => {
       paddingBottom: "20px",
       marginLeft:"100px",
       gap: "20px",
-      color:'white'
+      color:'black'
     },
     calendarDays: {
       display: "grid",
@@ -467,7 +470,7 @@ const daysInMonth = (date: Date): number => {
       ) : (
         <>
           <div style={styles.calendarHeader}>
-            <h2 style={{ color: "white" }}>
+            <h2 style={{ color: "black" }}>
               {currentDate.toLocaleDateString("ru-RU", {
                 month: "long",
                 year: "numeric",

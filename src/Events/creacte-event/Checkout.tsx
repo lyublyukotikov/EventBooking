@@ -120,7 +120,7 @@ if (isMobile) {
     <ThemeProvider theme={darkTheme}>
       <React.Fragment>
         <CssBaseline />
-        <div className='Container' style={{ marginTop: "5%", marginBottom: "5%", paddingTop: "30px", paddingBottom: "30px", paddingLeft: "30px", paddingRight: "30px", marginLeft: "2%", marginRight: "2%" }}>
+        <div className='Container' style={{ marginTop: "2%",marginBottom: "2%", marginLeft: "auto", marginRight: "auto", width: "70%", maxWidth: "900px" }}>
   
           <Typography component="h1" variant="h4" align="center">
             Форма создания событий

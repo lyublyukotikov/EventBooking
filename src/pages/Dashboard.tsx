@@ -195,7 +195,7 @@ export default function Dashboard() {
   component="main"
   sx={{
     backgroundColor: (theme) =>
-      theme.palette.mode === "black"
+      theme.palette.mode === "light"
         ? theme.palette.grey[100]
         : theme.palette.grey[900],
     flexGrow: 1,
