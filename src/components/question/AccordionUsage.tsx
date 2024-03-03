@@ -15,7 +15,7 @@ const AccordionUsage = observer(() => {
       store.checkAuth();
     }
   }, []);
-
+  console.log("store.user.isActivated:", store.user.isActivated);
   return (
     <div
       className="container"
@@ -151,6 +151,7 @@ const AccordionUsage = observer(() => {
               color: "white",
             }}
           >
+            
             {store.user.isActivated
               ? "Аккаунт подтвержден ✅"
               : "Аккаунт не подтвержден ❌"}

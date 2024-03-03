@@ -3,12 +3,12 @@ import axios from "axios";
 import { AuthResponse } from "../models/response/AuthResponse";
 
 // ccылка на сервер
-export const API_URL = `http://localhost:5000/api/`;
-
+export const VITE_API_URL = import.meta.env.VITE_API_URL + '/api';
+console.log("VITE_API_URL:", VITE_API_URL);
 const $api = axios.create({
   // чтобы каждый раз циплялся токен в заголовок
   withCredentials: true,
-  baseURL: API_URL,
+  baseURL: VITE_API_URL,
 });
 // запрос
 $api.interceptors.request.use((config) => {
@@ -29,7 +29,7 @@ $api.interceptors.response.use(
     ) {
       originalRequest._isRetry = true;
       try {
-        const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
+        const response = await axios.get<AuthResponse>(`${VITE_API_URL}/refresh`, {
           withCredentials: true,
         });
         localStorage.setItem("token", response.data.accessToken);

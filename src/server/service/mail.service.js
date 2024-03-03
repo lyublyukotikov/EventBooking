@@ -8,8 +8,8 @@ const SMTP_PORT = process.env.SMTP_PORT ;
 const SMTP_HOST = process.env.SMTP_HOST ;
 const SMTP_USER = process.env.SMTP_USER ;
 const SMTP_PASSWORD = process.env.SMTP_PASSWORD ;
-const API_URL = process.env.API_URL ;
-
+const VITE_API_URL =  process.env.VITE_API_URL ;
+console.log(VITE_API_URL)
 class MailService {
   constructor() {
     this.transporter = nodemailer.createTransport({
@@ -27,7 +27,7 @@ class MailService {
     await this.transporter.sendMail({
       from: SMTP_USER,
       to,
-      subject: "Активация аккаунта на " + API_URL,
+      subject: "Активация аккаунта на " + VITE_API_URL,
       text: "",
       html: `
         <div>

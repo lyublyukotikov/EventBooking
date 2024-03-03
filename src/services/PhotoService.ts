@@ -1,7 +1,7 @@
 import $api from "../http/index.js";
 import { AxiosResponse } from "axios";
 import { Photo } from "../models/Photo.js";
-
+import { VITE_API_URL } from "../http/index.js"
 export default class PhotoService {
   // Метод для получения фотографий в альбоме по ID
   static async getPhotosInAlbum(albumId: string): Promise<AxiosResponse<Photo[]>> {
@@ -14,7 +14,7 @@ export default class PhotoService {
   formData.append('photo', file);
   formData.append('title', title);
 
-  return $api.post<{ photo: Photo }>(`http://localhost:5000/api/album/${albumId}/photo`, formData, {
+  return $api.post<{ photo: Photo }>(`${VITE_API_URL}/album/${albumId}/photo`, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },

@@ -12,7 +12,8 @@ import axios from "axios";
 //импортируем нашу модель authResponse
 import { AuthResponse } from "../models/response/AuthResponse";
 // импортируем настройки нашего axios
-import $api, { API_URL } from "../http/index.js";
+import $api, { VITE_API_URL } from "../http/index.js";
+
 // импортируем модель альбома
 import { Album } from "../models/Album.js";
 import { Event } from "../models/Events.ts";
@@ -21,8 +22,10 @@ import AlbumService from "../services/AlbumsService.js";
 // импортируем сервис по получению фотографий в альбоме
 import PhotoService from "../services/PhotoService.js";
 import EventService from "../services/EventsService.ts";
+// ccылка на сервер
 
 export default class Store {
+  
   user = {} as Iuser; //храним данные  пользователя
   isAuth = false; //храним статус авторизован или нет
 
@@ -95,6 +98,7 @@ export default class Store {
       this.setAuth(true);
       // мы получили в ответе данны о пользователе передаем их в мутацию setuser
       this.setuser(response.data.user);
+      
     } catch (error) {
       this.setLoginError(error.response?.data?.message);
 
@@ -140,7 +144,7 @@ export default class Store {
   async checkAuth() {
     
     try {
-      const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
+      const response = await axios.get<AuthResponse>(`${VITE_API_URL}/refresh`, {
         withCredentials: true,
       });
       //если запрос прошел успешно,значит пользователь авторизован,его refresh токен еще валиден
@@ -150,6 +154,7 @@ export default class Store {
       // если все прошло успешно тогда вызываем мутацию setAuth и передаем туда true
       this.setAuth(true);
       // мы получили в ответе данны о пользователе передаем их в мутацию setuser
+      console.log
       this.setuser(response.data.user);
     } catch (error) {
       console.log(error.response?.data?.message);
@@ -176,7 +181,7 @@ export default class Store {
       }
       //вызываем метод PhotoService дял получение фотографий в выбранном альбоме
       const response = await PhotoService.getPhotosInAlbum(this.selectedAlbum);
-
+      console.log(response)
       // Обновляем свойство, хранящее фотографии в выбранном альбоме
       this.setPhotosInSelectedAlbum(response.data);
     } catch (error) {
