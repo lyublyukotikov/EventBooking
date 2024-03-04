@@ -121,7 +121,7 @@ if (isMobile) {
       <React.Fragment>
         <CssBaseline />
         <div className='Container' style={{ marginTop: "2%",marginBottom: "2%", marginLeft: "auto", marginRight: "auto", width: "70%", maxWidth: "900px" }}>
-  
+          
           <Typography component="h1" variant="h4" align="center">
             Форма создания событий
           </Typography>

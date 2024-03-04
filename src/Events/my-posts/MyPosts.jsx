@@ -153,6 +153,7 @@ const MyPosts = observer(() => {
                     marginBottom: '20px',
                     borderRadius: '16px',
                     padding: '16px',
+                    opacity: "0.9",
                   }}
                 >
                   <Accordion>
@@ -161,8 +162,10 @@ const MyPosts = observer(() => {
                       aria-controls={`panel${event.id}-content`}
                       id={`panel${event.id}-header`}
                       sx={{
-                        backgroundColor: 'rgb(240, 240, 240)',
+                        backgroundColor: 'black',
                         borderRadius: '16px',
+                        color:'white',
+                       
                       }}
                     >
                       <Typography variant="h6" sx={{ fontSize: '20px', fontWeight: 'bold' }}>

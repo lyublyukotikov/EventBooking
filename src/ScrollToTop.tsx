@@ -1,7 +1,7 @@
 import React  from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-
+import backgroundImage from "./assets/scroll.png"
 
 const ScrollToTopButton: React.FC = () => {
  const [isVisible, setIsVisible] = useState(false);
@@ -33,7 +33,7 @@ const ScrollToTopButton: React.FC = () => {
     <div className="scroll-to-top" style={{ position: 'fixed', right:100, bottom:50 }} >
       {isVisible && 
         <div onClick={scrollToTop}>
-         <img src="../src/assets/scroll.png" alt="" />
+          <img src={backgroundImage}  />
         </div>}
     </div>
  );

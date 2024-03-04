@@ -16,6 +16,7 @@ import { Context } from "../../App";
 import { observer } from "mobx-react-lite";
 // индикатор загрузки
 import LoadingIndicator from "../loading/Loading";
+import backgroundImage from "../../assets/image_auth.jpg";
 // создаем пропс
 interface RegistrPageProps {
   onToggleRegist: () => void;
@@ -97,7 +98,7 @@ const RegistrationPage: React.FC<RegistrPageProps> = observer(
             sm={4}
             md={7}
             sx={{
-              backgroundImage: "url(../src/assets/image_auth.jpg)",
+              backgroundImage: `url(${backgroundImage})`,
               backgroundRepeat: "no-repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"
@@ -125,7 +126,7 @@ const RegistrationPage: React.FC<RegistrPageProps> = observer(
                 alignItems: "center",
               }}
             >
-              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+               <Avatar sx={{ m: 1, bgcolor: "black" }}>
                 <LockOutlinedIcon />
               </Avatar>
               <Typography component="h1" variant="h5">

@@ -53,8 +53,10 @@ const MultipleSelect = observer(() => {
     padding: "20px",
     marginTop: "20px",
     transition: "border-color 0.3s ease-in-out",
+    width:"80%"
+    
   };
-
+  
   const noImageDroppedStyle: React.CSSProperties = {
     borderColor: "black",
   };
@@ -172,8 +174,8 @@ const MultipleSelect = observer(() => {
   };
   return (
     <ThemeProvider theme={darkTheme}>
-    <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
+    <div className="Container">
+      <FormControl sx={{ m: 1, width: "100%"}}>
         {/* инпут для выбора альбомов куда грузить фотографию  */}
         <InputLabel id="demo-multiple-name-label">Альбомы</InputLabel>
 
@@ -222,7 +224,7 @@ const MultipleSelect = observer(() => {
             value={selectedTitle}
             onChange={handleTitleChange}
             style={{
-              width: "200px",
+              width: "50%",
               padding: "8px",
               borderRadius: "4px",
               border: "1px solid #ccc",
@@ -250,9 +252,9 @@ const MultipleSelect = observer(() => {
               ...(fileData.dataURL ? imageDroppedStyle : noImageDroppedStyle),
             }}
           >
-            <div className="form-group row">
-              <div className="col-md-6">
-                <label className="drag-label" style={{ gap: "20px" }}>
+            <div className="form-group row" style={{ flexDirection: 'column',width:"100%" }}>
+            <div className="col-md-6" style={{ marginBottom: '10px',overflowY:"auto" }}>
+            <label className="drag-label" style={{ marginBottom: '10px' }}>
                   Перетащи изображение на кнопку "Выберите файл"
                 </label>
                 <input
@@ -281,7 +283,7 @@ const MultipleSelect = observer(() => {
           </div>
         </div>
       </FormControl>
-      <div
+     <div
         style={{
           paddingTop: "20px",
           display: "flex",

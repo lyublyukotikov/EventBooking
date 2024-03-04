@@ -19,6 +19,7 @@ import { Context } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LoadingIndicator from "../loading/Loading";
+import backgroundImage from "../../assets/profil.png"
 function ResponsiveAppBar() {
   // создаем переменную usenavigate для перенаправления в компонент регистрации и авторизации
   const navigate = useNavigate();
@@ -297,7 +298,7 @@ function ResponsiveAppBar() {
                 onClick={handleOpenUserMenu}
                 sx={{ p: 0, width: "50px" }}
               >
-                <img src="../../../src/assets/profil.png" alt="/profil" />
+                <img src={backgroundImage} alt="/profil" />
               </IconButton>
             </Tooltip>
 
@@ -322,6 +323,26 @@ function ResponsiveAppBar() {
                 open={openModalAddingPhoto}
                 onClose={handleCloseOpenModalAddingPhoto}
               >
+                 <div
+      style={{
+        width: "30px",
+        fontSize: "25px",
+        display: "flex",
+        justifyContent: "flex-end",
+        marginLeft: "auto",
+      
+        marginRight: "20px", // Отступ справа
+        fontWeight: "bold",
+        cursor: "pointer", // Добавлено, чтобы указать, что элемент кликабелен
+        textDecoration: "none", // Убирает подчеркивание для ссылки
+        zIndex: 1000,
+        color:"black"
+      }}
+      aria-label="close"
+      onClick={() => handleCloseOpenModalAddingPhoto()}
+    >
+        &#x2715;
+    </div>
                 
                 <DialogContent>
                   <h2
@@ -351,7 +372,7 @@ function ResponsiveAppBar() {
                  >
                  <a
                    title="Выйти из аккаунта"
-                   href="#"
+                   
                    onClick={handleLogout}
                    style={{ color: "black", textDecoration: "none" }}
                  >

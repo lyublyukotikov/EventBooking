@@ -21,12 +21,13 @@ import MultipleSelect from "../uploading-image/MultipleSelect.js";
 import { Context } from "../../App.jsx";
 import { observer } from "mobx-react-lite";
 import backgroundImage from "../../assets/album_background.jpg";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="white" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://vk.com/alesha__mikhailov">
-      alemi
+        alemi
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -58,7 +59,7 @@ const Album = observer(() => {
   const [openModalAlbom, setOpenModalAlbom] = useState(false);
 
   return (
-    <ThemeProvider theme={defaultTheme} >
+    <ThemeProvider theme={defaultTheme}>
       <main>
         <Box
           sx={{
@@ -85,14 +86,18 @@ const Album = observer(() => {
               justifyContent="center"
             >
               <Button
-               variant="contained"
-               sx={{ bgcolor: "white", color: "black", "&:hover": { backgroundColor: "white" } }}
-               onClick={() => {
-                 setOpenModalAlbom(true);
-               }}
-             >
-               Добавить фото в альбом
-             </Button>
+                variant="contained"
+                sx={{
+                  bgcolor: "white",
+                  color: "black",
+                  "&:hover": { backgroundColor: "white" },
+                }}
+                onClick={() => {
+                  setOpenModalAlbom(true);
+                }}
+              >
+                Добавить фото в альбом
+              </Button>
               <SelectAutoWidth />
             </Stack>
           </Container>
@@ -100,116 +105,154 @@ const Album = observer(() => {
         <div
           style={{
             backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: "cover", 
+            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",
             maxWidth: "100%",
             height: "auto",
             backgroundColor: "transparent",
           }}
-         >
-        <Container  sx={{ py: 8}} maxWidth="md">
-          
-          <Grid container spacing={4} style={{}}>
-            {currentCards.map((photo) => (
-              <Grid item key={photo.id} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{
-                    height: "100%",
+        >
+          <Container sx={{ py: 8 }} maxWidth="md">
+            <Grid container spacing={4} style={{}}>
+              {currentCards.map((photo) => (
+                <Grid item key={photo.id} xs={12} sm={6} md={4}>
+                  <Card
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      transition: "transform 0.2s",
+                      "&:hover": {
+                        transform: "scale(1.1)",
+                      },
+                    }}
+                  >
+                    <CardMedia
+                      component="div"
+                      sx={{
+                        pt: "100%",
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                      }}
+                      image={photo.url}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {photo.title}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button
+                        size="small"
+                        sx={{ bgcolor: "white", color: "black" }}
+                        onClick={() => {
+                          setOpenModal(true);
+                          setSelectedImage(photo.url);
+                        }}
+                      >
+                        Посмотреть
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+            <Stack
+              sx={{ marginTop: 2 }}
+              direction="row"
+              justifyContent="center"
+            >
+              <Pagination
+                count={Math.ceil(
+                  store.photosInSelectedAlbum.length / CardsPerPage
+                )}
+                page={currentPage}
+                onChange={handlePageChange}
+              />
+            </Stack>
+            {/* диалог для просмотра фото  */}
+            <Dialog open={openModal} onClose={() => setOpenModal(false)}>
+              <DialogContent>
+                <img
+                  src={selectedImage}
+                  alt="Изображение"
+                  style={{
+                    width: "100%",
+                    maxHeight: "80vh",
+                    objectFit: "contain",
+                  }}
+                />
+              </DialogContent>
+            </Dialog>
+
+            
+          </Container>
+          <Dialog
+              open={openModalAlbom}
+              onClose={() => setOpenModalAlbom(false)}
+             style={{flexDirection:'column',alignItems:'center'}}
+            >
+      <div
+      style={{
+        width: "40px",
+        fontSize: "25px",
+        display: "flex",
+        justifyContent: "flex-end",
+        marginLeft: "auto",
+        marginTop: "10px", // Отступ снизу
+        marginRight: "20px", // Отступ справа
+        fontWeight: "bold",
+        cursor: "pointer", // Добавлено, чтобы указать, что элемент кликабелен
+        textDecoration: "none", // Убирает подчеркивание для ссылки
+        zIndex: 1000,
+        color:"black"
+      }}
+      aria-label="close"
+      onClick={() => setOpenModalAlbom(false)}
+    >
+        &#x2715;
+    </div>
+              <DialogContent>
+                <div
+                  style={{
                     display: "flex",
-                    flexDirection: "column",
-                    transition: "transform 0.2s",
-                    "&:hover": {
-                      transform: "scale(1.1)",
-                    },
+                    flexDirection: "column", // Стек элементов вертикально на маленьких экранах
+                    alignItems: "center", // Центрирование элементов по горизонтали
+                    
                   }}
                 >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      pt: "100%",
-                      backgroundSize: "contain",
-                      backgroundRepeat: "no-repeat", 
+                  <h2
+                    style={{
+                      fontSize: "25px",
+                      fontFamily: "'Arial', sans-serif",
                     }}
-                    image={photo.url}
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {photo.title}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      sx={{ bgcolor: "white", color: "black" }}
-                      onClick={() => {
-                        setOpenModal(true);
-                        setSelectedImage(photo.url);
-                      }}
-                    >
-            
-
-                      Посмотреть
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-          <Stack sx={{ marginTop: 2 }} direction="row" justifyContent="center">
-            <Pagination
-              count={Math.ceil(
-                store.photosInSelectedAlbum.length / CardsPerPage
-              )}
-              page={currentPage}
-              onChange={handlePageChange}
-            />
-          </Stack>
-          <Dialog open={openModal} onClose={() => setOpenModal(false)}>
-            <DialogContent>
-              <img
-                src={selectedImage}
-                alt="Изображение"
-                style={{
-                  width: "100%",
-                  maxHeight: "80vh",
-                  objectFit: "contain",
-                }}
-              />
-            </DialogContent>
-          </Dialog>
-          <Dialog
-            open={openModalAlbom}
-            onClose={() => setOpenModalAlbom(false)}
-          >
-            <DialogContent>
-              <h2
-                style={{ fontSize: "25px", fontFamily: "'Arial', sans-serif" }}
-              >
-                Добавление Фото в Альбом PS. (можно добавить фото в несколько
-                альбомов)
-              </h2>
-              <MultipleSelect />
-            </DialogContent>
-          </Dialog>
-        </Container>
+                  >
+                    Добавление Фото в Альбом PS. (можно добавить фото в
+                    несколько альбомов)
+                  </h2>
+                  
+                </div>
+                <MultipleSelect />
+              </DialogContent>
+            </Dialog>
         </div>
       </main>
       <Box
-       sx={{
-         bgcolor: "black",
-         color: "white",
-         p: 6,
-         mt: 'auto',
-       }}
-       component="footer"
-     >
-     <Typography variant="h6" align="center" gutterBottom>
-       Мы Семья!
-     </Typography>
-     <Copyright />
-     </Box>
-</ThemeProvider>
+        sx={{
+          bgcolor: "black",
+          color: "white",
+          p: 6,
+          mt: "auto",
+        }}
+        component="footer"
+      >
+        <Typography variant="h6" align="center" gutterBottom>
+          Мы Семья!
+        </Typography>
+        <Copyright />
+      </Box>
+    </ThemeProvider>
   );
 });
 

@@ -11,7 +11,8 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import LoadingIndicator from "../../components/loading/Loading";
-
+import backgroundImage1 from "../../assets/back.png"
+import backgroundImage2 from "../../assets/next.png"
 
 // интерфейс для события 
 interface Event {
@@ -427,6 +428,7 @@ const daysInMonth = (date: Date): number => {
       fontSize: "1rem",
       transition: "background-color 0.3s ease",
       border: "1px solid grey",
+     
   
     
    
@@ -479,16 +481,16 @@ const daysInMonth = (date: Date): number => {
           </div>
           <div style={styles.navigate}>
             <button style={styles.arrowButton} onClick={prevMonth}>
-              🡨
+            <img src={backgroundImage1}  />
             </button>
             <button style={styles.arrowButton} onClick={nextMonth}>
-              🡪
+            <img src={backgroundImage2}  />
             </button>
             {selectedDays.length > 0 && (
               <div>
                 <Button
                   variant="outlined"
-                  sx={{ borderColor: 'white', color: 'white' }}
+                  sx={{ borderColor: 'black', color: 'black' }}
                   onClick={() => {
                     if (selectedDays.length > 0) {
                       handleDialogOpen();

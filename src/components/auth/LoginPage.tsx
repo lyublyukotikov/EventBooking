@@ -15,7 +15,7 @@ import { useContext } from "react";
 import { Context } from "../../App";
 import { observer } from "mobx-react-lite";
 import LoadingIndicator from "../loading/Loading";
-
+import backgroundImage from "../../assets/image_auth.jpg";
 // создаем пропс
 interface LoginPageProps {
   onToggleForm: () => void;
@@ -96,7 +96,7 @@ const login: React.FC<LoginPageProps> = observer(({ onToggleForm }) => {
             sm={4}
             md={7}
             sx={{
-              backgroundImage: "url(../src/assets/image_auth.jpg)",
+              backgroundImage: `url(${backgroundImage})`,
               backgroundRepeat: "no-repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"

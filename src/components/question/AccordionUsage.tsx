@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box, Typography } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../App";
-
+import backgroundImage from "../../assets/blur.jpg"
 const AccordionUsage = observer(() => {
   const { store } = React.useContext(Context);
 
@@ -20,7 +20,7 @@ const AccordionUsage = observer(() => {
     <div
       className="container"
       style={{
-        backgroundImage: 'url("../src/assets/blur.jpg")',
+        backgroundImage: `url(${backgroundImage})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
