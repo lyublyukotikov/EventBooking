@@ -362,17 +362,15 @@ function ResponsiveAppBar() {
                 textAlign="center"
                 sx={{
                   display: "flex",
-                  flexDirection: "column",
                   justifyContent: "start",
                   alignItems: "start",
                   padding: "15px",
                   gap: "20px",
-                  width: "200px",
                 }}
                  >
                  <a
-                   title="Выйти из аккаунта"
-                   
+                  
+                   href="#"
                    onClick={handleLogout}
                    style={{ color: "black", textDecoration: "none" }}
                  >
