@@ -10,7 +10,7 @@ import { config } from 'dotenv';
 config();
 // ссылка на клиент
 // eslint-disable-next-line no-undef
-const CLIENT_URL = process.env.VITE_CLIENT_URL;
+const CLIENT_URL = process.env.CLIENT_URL;
 class UserController {
   // регистрация
   async registration(req, res, next) {
