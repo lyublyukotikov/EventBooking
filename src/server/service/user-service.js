@@ -11,7 +11,8 @@ import ApiError from "../exceptions/api-error.js";
 import { config } from 'dotenv';
 config();
 // ССЫЛКА на  cервер сайта
-const VITE_API_URL =process.env.VITE_API_URL; // Добавил кавычки вокруг URL
+const API_URL =process.env.API_URL; // Добавил кавычки вокруг URL
+console.log(API_URL)
 class UserService {
   // Создание пользователя
   async registration(email, password) {
@@ -42,7 +43,7 @@ class UserService {
     // передаем нашему сервису mailService email нового пользователя и activationLink, которую мы создали (отправляем на почту письму с ссылкой на активацию)
     await MailService.sendActivationMail(
       email,
-      `${VITE_API_URL}/api/activate/${activation_link}`
+      `${API_URL}/api/activate/${activation_link}`
     );
 
     // используем dto
