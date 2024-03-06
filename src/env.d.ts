@@ -1,4 +1,5 @@
 interface ImportMetaEnv {
+  VITE_CLIENT_URL: any;
   readonly VITE_API_URL: string;
   // Добавьте здесь другие переменные окружения, если они вам нужны
  }

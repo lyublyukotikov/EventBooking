@@ -4,7 +4,10 @@ import { AuthResponse } from "../models/response/AuthResponse";
 
 // ccылка на сервер
 export const VITE_API_URL = import.meta.env.VITE_API_URL + '/api';
+export const VITE_CLIENT_URL = import.meta.env.VITE_CLIENT_URL ;
 console.log("VITE_API_URL:", VITE_API_URL);
+console.log("VITE_CLIENT_URL:", VITE_CLIENT_URL);
+
 const $api = axios.create({
   // чтобы каждый раз циплялся токен в заголовок
   withCredentials: true,
