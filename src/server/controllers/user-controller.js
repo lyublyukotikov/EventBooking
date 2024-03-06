@@ -10,7 +10,7 @@ import { config } from 'dotenv';
 config();
 // ссылка на клиент
 // eslint-disable-next-line no-undef
-const CLIENT_URL = process.env.CLIENT_URL;
+const VITE_CLIENT_URL = process.env.VITE_CLIENT_URL;
 
 class UserController {
   // регистрация
@@ -84,7 +84,7 @@ class UserController {
       // передаем эту ссылку активации в наш сервис userService в функцию activate
       await UserService.activate(activation_link);
       // делаем редирект на клиента
-      return res.redirect(CLIENT_URL);
+      return res.redirect(VITE_CLIENT_URL);
     } catch (error) {
       //Вызываем функцию next чтобы передать ошибку
       next(error);
