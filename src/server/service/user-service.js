@@ -43,7 +43,7 @@ class UserService {
     // передаем нашему сервису mailService email нового пользователя и activationLink, которую мы создали (отправляем на почту письму с ссылкой на активацию)
     await MailService.sendActivationMail(
       email,
-      `${API_URL}/api/activate/${activation_link}`
+      `${API_URL}/activate/${activation_link}`
     );
 
     // используем dto

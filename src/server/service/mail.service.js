@@ -24,6 +24,7 @@ class MailService {
   }
 
   async sendActivationMail(to, link) {
+    console.log("API_URL:", API_URL); // Добавьте эту строку
     await this.transporter.sendMail({
       from: SMTP_USER,
       to,
