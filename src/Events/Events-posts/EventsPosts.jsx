@@ -11,7 +11,6 @@ import { Typography } from "@mui/material";
 import { Context } from "../../App.jsx";
 import { observer } from "mobx-react-lite";
 import LoadingIndicator from '../../Loading/CircularIndeterminate.jsx';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 const Eventsposts = observer(() =>  {
   
   // используем контекст к получению доступа к стору 
@@ -69,7 +68,7 @@ return isLoading ? (
         >
           <Accordion>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon style={{ fontSize: '40px',color:"white" }}  />}
               aria-controls={`panel${event.id}-content`}
               id={`panel${event.id}-header`}
               sx={{
@@ -80,12 +79,10 @@ return isLoading ? (
             >
               <Typography variant="h6" sx={{ fontSize: '20px', fontWeight: 'bold' }}>
                 {`Событие #${event.id}: ${event.organizerFirstName} ${event.organizerLastName},почта создателя: ${event.userEmail} `}
-              
+                
               </Typography>
-              <div style={{display:'flex',alignItems:"center",marginLeft:"auto",}}>
-              <ArrowDropDownIcon  style={{ fontSize: '40px' }} />
-              </div>
             </AccordionSummary>
+           
             <AccordionDetails>
               <div>
                 <Typography variant="body1" sx={{ marginBottom: '12px' }}>
