@@ -15,7 +15,7 @@ const AccordionUsage = observer(() => {
       store.checkAuth();
     }
   }, []);
-  console.log("store.user.isActivated:", store.user.isActivated);
+
   return (
     <div
       className="container"

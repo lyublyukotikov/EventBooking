@@ -10,8 +10,7 @@ export default function CircularIndeterminate() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100vh', // Высота на весь экран
-        backgroundColor: 'rgba(255, 255, 255, 0.5)', // Прозрачный фон, чтобы было видно, что экран затемнен
+      
       }}
     >
       <CircularProgress 

@@ -41,9 +41,9 @@ const formatDate = (dateString) => {
   return formattedDate;
 };
 return isLoading ? (
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-    <LoadingIndicator />
-  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'white' }}>
+          <LoadingIndicator />
+        </div>
 ) : (
   <>
     <Box

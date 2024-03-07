@@ -10,7 +10,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import LoadingIndicator from "../../components/loading/Loading";
+import LoadingIndicator from '../../Loading/CircularIndeterminate.jsx';
 import backgroundImage1 from "../../assets/back.png"
 import backgroundImage2 from "../../assets/next.png"
 
@@ -465,9 +465,9 @@ const daysInMonth = (date: Date): number => {
 
   return (
     <div style={styles.calendarContainer}>
-      {isLoading ? (
+      {isLoading ?  (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-          <LoadingIndicator />
+          <LoadingIndicator  />
         </div>
       ) : (
         <>

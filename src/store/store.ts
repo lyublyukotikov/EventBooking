@@ -154,7 +154,7 @@ export default class Store {
       // если все прошло успешно тогда вызываем мутацию setAuth и передаем туда true
       this.setAuth(true);
       // мы получили в ответе данны о пользователе передаем их в мутацию setuser
-      console.log
+     
       this.setuser(response.data.user);
     } catch (error) {
       console.log(error.response?.data?.message);
@@ -181,7 +181,7 @@ export default class Store {
       }
       //вызываем метод PhotoService дял получение фотографий в выбранном альбоме
       const response = await PhotoService.getPhotosInAlbum(this.selectedAlbum);
-      console.log(response)
+     
       // Обновляем свойство, хранящее фотографии в выбранном альбоме
       this.setPhotosInSelectedAlbum(response.data);
     } catch (error) {
@@ -250,7 +250,7 @@ export default class Store {
       const response = await EventService.getAllEventsByUser();
       const eventsById = response.data; // Извлекаем данные из AxiosResponse
 
-      console.log("Полученные события по id пользователя:", eventsById);
+      
 
       // Обновляем переменную events
       this.setEventsById(eventsById);

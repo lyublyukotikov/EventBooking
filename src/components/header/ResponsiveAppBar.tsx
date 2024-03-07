@@ -87,10 +87,7 @@ function ResponsiveAppBar() {
         
         navigate('/События');
       }
-    } else {
-      
-      navigate('/События');
-    }
+    } 
   };
 
 
@@ -273,13 +270,7 @@ function ResponsiveAppBar() {
               >
                 Участники
               </a>
-              <Link
-                title="События"
-                to="/События"
-                style={{ color: "white", textDecoration: "none" }}
-              >
-                События
-              </Link>
+              <a   style={{ color: "white", textDecoration: "none" }}   href="#" title="События"   onClick={handleEventsClick}>События</a>
               <a
                 title="Загрузить фото в альбом"
                 href="#"
