@@ -12,6 +12,7 @@ import { observer } from "mobx-react-lite";
 import Button from "@mui/material/Button";
 import LoadingIndicator from '../../Loading/CircularIndeterminate.jsx';
 import { Stack } from '@mui/system';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 const MyPosts = observer(() => {
   const { store } = useContext(Context);
   //Стейты для хранения информации об открытии/закрытии окна удаления и хранения события которое удалить 
@@ -171,6 +172,9 @@ const MyPosts = observer(() => {
                       <Typography variant="h6" sx={{ fontSize: '20px', fontWeight: 'bold' }}>
                         {`Событие #${event.id}: ${event.organizerFirstName} ${event.organizerLastName},почта создателя: ${event.userEmail} `}
                       </Typography>
+                      <div style={{display:'flex',alignItems:"center",marginLeft:"auto",}}>
+              <ArrowDropDownIcon  style={{ fontSize: '40px' }} />
+              </div>
                     </AccordionSummary>
                     <AccordionDetails>
                       <div>
