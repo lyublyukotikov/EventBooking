@@ -208,10 +208,12 @@ export default class Store {
           file
         );
         const newPhoto = response.data.photo; // Обращаемся к полю photo в ответе
+        console.log(newPhoto)
+       
       });
 
       await Promise.all(promises);
-
+      
       console.log("Фотография успешно добавлена в альбомы");
     } catch (error) {
       console.error("Ошибка при добавлении фотографии в альбомы", error);

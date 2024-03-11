@@ -58,6 +58,7 @@ const Album = observer(() => {
   const [selectedImage, setSelectedImage] = useState("");
   const [openModalAlbom, setOpenModalAlbom] = useState(false);
 
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <main>
@@ -233,7 +234,7 @@ const Album = observer(() => {
                   </h2>
                   
                 </div>
-                <MultipleSelect />
+                <MultipleSelect  />
               </DialogContent>
             </Dialog>
         </div>

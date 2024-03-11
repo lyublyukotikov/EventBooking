@@ -116,6 +116,8 @@ const MultipleSelect = observer(() => {
     // Внутри handleChange
     console.log("Form Errors after album change:", formErrors);
   };
+
+
   // Функция для обновления состояниея названия картинки
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedTitle(event.target.value);
@@ -125,6 +127,8 @@ const MultipleSelect = observer(() => {
       title: event.target.value.length === 0,
     }));
   };
+
+
   // функция для обновления состояния фотографии
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // извлекаем файл
@@ -150,7 +154,7 @@ const MultipleSelect = observer(() => {
     }
   };
 
-  // функция добавления фотографии в альбом
+  
   // Функция добавления фотографии в альбом
   const handleAddPhoto = () => {
     // Обновляем состояние ошибок перед проверкой
@@ -169,7 +173,9 @@ const MultipleSelect = observer(() => {
       console.error("Пожалуйста, заполните все необходимые поля.");
     } else {
       store.addPhotoToAlbums(personName, selectedTitle, fileData.file);
+
        store.getPhotoInSelectedAlbum();
+     
     }
   };
   return (
